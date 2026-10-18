@@ -105,11 +105,11 @@ export function TeamLobby({
   return (
     <div className="team-lobby">
       <section className="share-panel">
-        <p className="eyebrow">Shareable team pack</p>
+        <p className="eyebrow">Team pack</p>
         <h1>{team.name}</h1>
         <p className="hero-copy">
-          Same {team.questionCount} questions for everyone. When the group is
-          done, compare your leanings with the rest of the world.
+          Your team vs. the world. Fight. Same {team.questionCount} questions for
+          everyone — then stack the tallies.
         </p>
         <div className="share-row">
           <code className="share-url">{shareUrl}</code>
@@ -142,14 +142,14 @@ export function TeamLobby({
         )}
         <div className="cta-row">
           <Link href={`/t/${team.code}/results`} className="btn solid">
-            Group dashboard
+            See the fight
           </Link>
           {joined && nextQuestion ? (
             <Link
               href={`/questions/${nextQuestion.id}?team=${team.code}`}
               className="btn ghost"
             >
-              Continue answering
+              Keep picking
             </Link>
           ) : null}
         </div>
@@ -169,7 +169,7 @@ export function TeamLobby({
             <input
               value={username}
               onChange={(event) => setUsername(event.target.value)}
-              placeholder="e.g. soft-pretzel"
+              placeholder="e.g. chaos-pretzel"
               maxLength={32}
               required
               disabled={Boolean(signedInName)}

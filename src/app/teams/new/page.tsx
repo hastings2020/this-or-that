@@ -15,10 +15,10 @@ export default async function NewTeamPage() {
         ← Home
       </Link>
       <p className="eyebrow">Team pack</p>
-      <h1>Share one link with your crew</h1>
+      <h1>Your team vs. the world. Fight.</h1>
       <p className="hero-copy">
-        Everyone gets the same shuffled set. When they finish, compare your
-        group’s leanings with the rest of the world.
+        One link, one shuffled pack. When your crew finishes, stack your leanings
+        against everyone else.
       </p>
       <CreateTeamForm
         questionBankSize={questionBankSize}

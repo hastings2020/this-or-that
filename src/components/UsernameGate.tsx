@@ -45,7 +45,7 @@ export function UsernameGate({
   return (
     <div className="username-overlay" role="dialog" aria-modal="true">
       <form className="username-panel" onSubmit={handleSubmit}>
-        <p className="eyebrow">Friendly nickname</p>
+        <p className="eyebrow">Nickname sticker</p>
         <h2>{title}</h2>
         <p className="lede">
           Saved in your browser so you can vote once per question — or{" "}
@@ -60,7 +60,7 @@ export function UsernameGate({
               setValue(event.target.value);
               setError(null);
             }}
-            placeholder="e.g. soft-pretzel"
+            placeholder="e.g. chaos-pretzel"
             maxLength={32}
           />
         </label>

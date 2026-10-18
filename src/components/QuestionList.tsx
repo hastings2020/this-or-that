@@ -11,7 +11,7 @@ export function QuestionList({
   if (questions.length === 0) {
     return (
       <p className="empty-note">
-        No questions yet. Be the first to toss one into the pile.
+        No questions yet. Be the chaos.
       </p>
     );
   }

@@ -1,6 +1,10 @@
 # This or That
 
-A calm, playful web app for lighthearted this-or-that questions. Browse a large question bank, vote with a nickname or a signed-in account, create questions, and share team packs with a group-vs-world dashboard.
+Loud sticker-board this-or-that: pick a side, stamp the tally, share a team pack vs. the world. Nickname voting works; sign-in is optional.
+
+![Sticker Shop landing — colliding THIS / THAT stickers and “Start picking” CTA](docs/images/sticker-shop-landing.png)
+
+*Sticker Shop look: chunky outlines, hard shadows, tomato THIS + sky THAT.*
 
 ## Stack
 

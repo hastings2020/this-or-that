@@ -80,7 +80,7 @@ export function CreateTeamForm({
         <input
           value={createdBy}
           onChange={(event) => setCreatedBy(event.target.value)}
-          placeholder="e.g. soft-pretzel"
+          placeholder="e.g. chaos-pretzel"
           maxLength={32}
           required
           disabled={Boolean(signedInName)}

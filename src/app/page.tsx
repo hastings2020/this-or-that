@@ -1,28 +1,31 @@
 import Link from "next/link";
 import { QuestionList } from "@/components/QuestionList";
-import { countQuestions, listQuestions } from "@/lib/db";
+import { listQuestions } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
 export default function HomePage() {
   const questions = listQuestions();
-  const bankSize = countQuestions();
 
   return (
     <>
       <section className="hero">
-        <p className="hero-brand">This or That</p>
-        <h1>Pick a side. Softly.</h1>
+        <div className="hero-collision" aria-label="This or That">
+          <span className="sticker-word this">THIS</span>
+          <span className="sticker-or">or</span>
+          <span className="sticker-word that">THAT</span>
+        </div>
+        <h1>Pick one. Defend it later.</h1>
         <p className="hero-copy">
-          Lighthearted questions, one nickname — or a signed-in display name —
-          and counts that refresh as friends weigh in.
+          Slap a side on sticky questions, watch the tally stamp itself, and
+          drag your crew into a pack vs. the world.
         </p>
         <div className="cta-row">
           <Link href="#questions" className="btn solid">
-            Browse {bankSize} questions
+            Start picking
           </Link>
           <Link href="/teams/new" className="btn ghost">
-            Share with your team
+            Your team vs. the world
           </Link>
         </div>
       </section>
@@ -31,8 +34,8 @@ export default function HomePage() {
         <div className="section-head">
           <h2>Open questions</h2>
           <p>
-            Vote counts sit up front — tap in, choose an option, watch the tally
-            sway.
+            Counts sit up front — tap in, pick a sticker, watch the price tags
+            update.
           </p>
         </div>
         <QuestionList questions={questions} />

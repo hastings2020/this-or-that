@@ -8,10 +8,10 @@ export default function NewQuestionPage() {
         ← Back to browse
       </Link>
       <p className="eyebrow">New question</p>
-      <h1>Toss one into the pile</h1>
+      <h1>Ask something unhinged</h1>
       <p className="hero-copy">
-        Keep it playful: a few solid options, plus one delightfully odd escape
-        hatch.
+        A few solid options, plus one delightfully weird escape hatch. Stick it
+        on the board.
       </p>
       <CreateQuestionForm />
     </article>
