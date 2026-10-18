@@ -48,6 +48,29 @@ Env vars (see `.env.example`):
 - Team packs at `/teams/new` → share `/t/<code>`
 - Group dashboard `/t/<code>/results` (group vs world)
 
+## Deploy on AWS
+
+See **[docs/DEPLOY_AWS.md](docs/DEPLOY_AWS.md)** for Lightsail (Path A) and App Runner + Docker (Path B).
+
+Production env (same as local, with a public `AUTH_URL`):
+
+| Variable | Required | Notes |
+|---|---|---|
+| `AUTH_SECRET` | yes | `openssl rand -base64 32` |
+| `AUTH_URL` | yes in prod | Public site origin, e.g. `https://your-domain.com` |
+| `AUTH_GITHUB_ID` | no | Optional GitHub OAuth |
+| `AUTH_GITHUB_SECRET` | no | Optional GitHub OAuth |
+
+GitHub OAuth callback: `https://<your-domain>/api/auth/callback/github`.
+
+```bash
+docker build -t this-or-that .
+docker run --rm -p 3000:3000 \
+  -e AUTH_SECRET="$(openssl rand -base64 32)" \
+  -e AUTH_URL=http://localhost:3000 \
+  this-or-that
+```
+
 ## Reset demo data
 
 Stop the server and delete `data/this-or-that.sqlite` (plus `-wal` / `-shm` if present).
