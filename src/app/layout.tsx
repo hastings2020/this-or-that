@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Figtree } from "next/font/google";
+import { Bricolage_Grotesque, DM_Sans } from "next/font/google";
 import { Providers } from "@/components/Providers";
 import { SiteChrome } from "@/components/SiteChrome";
 import "./globals.css";
@@ -9,22 +9,22 @@ const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
 });
 
-const figtree = Figtree({
-  variable: "--font-figtree",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "This or That",
   description:
-    "A calm little place for lighthearted this-or-that questions and soft opinions.",
+    "Pick one. Defend it later. Loud sticker-board this-or-that questions with live counts and team packs.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${bricolage.variable} ${figtree.variable} h-full antialiased`}
+      className={`${bricolage.variable} ${dmSans.variable} h-full antialiased`}
     >
       <body className="min-h-full">
         <Providers>

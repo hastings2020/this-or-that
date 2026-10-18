@@ -35,11 +35,11 @@ export function TeamResultsDashboard({
       <Link href={`/t/${code}`} className="back-link">
         ← Back to pack
       </Link>
-      <p className="eyebrow">Group dashboard</p>
-      <h1>{team.name}</h1>
+      <p className="eyebrow">Group vs world</p>
+      <h1>{team.name} vs. the world. Fight.</h1>
       <p className="hero-copy">
         {team.allComplete
-          ? "Everyone who joined finished the pack. Here’s your group versus the wider world."
+          ? "Everyone who joined finished the pack. Fat bars. Price tags. No mercy."
           : `${team.completedMemberCount}/${team.memberCount} teammates finished so far — live tallies below.`}
       </p>
 
@@ -106,7 +106,7 @@ export function TeamResultsDashboard({
                             width: `${Math.round((option.groupVotes / maxBar) * 100)}%`,
                           }}
                         />
-                        <strong>{option.groupVotes}</strong>
+                        <span className="price-tag">{option.groupVotes}</span>
                       </div>
                       <div className="bar-row world">
                         <span>World</span>
@@ -116,7 +116,7 @@ export function TeamResultsDashboard({
                             width: `${Math.round((option.worldVotes / maxBar) * 100)}%`,
                           }}
                         />
-                        <strong>{option.worldVotes}</strong>
+                        <span className="price-tag">{option.worldVotes}</span>
                       </div>
                     </div>
                   </li>

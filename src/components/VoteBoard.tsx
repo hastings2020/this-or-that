@@ -6,6 +6,8 @@ import type { QuestionDetail } from "@/lib/types";
 import { getStoredUsername } from "@/lib/username";
 import { UsernameGate } from "./UsernameGate";
 
+const ACCENTS = ["tomato", "sky", "mint", "sunshine"] as const;
+
 export function VoteBoard({
   initial,
   teamCode,
@@ -102,8 +104,8 @@ export function VoteBoard({
       <div className="vote-status">
         <p>
           {question.totalVotes}{" "}
-          {question.totalVotes === 1 ? "gentle opinion" : "gentle opinions"} so
-          far
+          {question.totalVotes === 1 ? "opinion stamped" : "opinions stamped"}{" "}
+          so far
           {username ? (
             <>
               {" "}
@@ -113,21 +115,24 @@ export function VoteBoard({
           ) : null}
         </p>
         {question.userVoteOptionId ? (
-          <p className="hint">Tap another option to change your vote.</p>
+          <p className="locked-in">Locked in. No take-backs (okay, one).</p>
         ) : (
-          <p className="hint">Tap an option to cast your vote.</p>
+          <p className="hint">Tap a sticker to cast your vote.</p>
         )}
       </div>
 
       <div className="option-grid" role="list">
-        {question.options.map((option) => {
+        {question.options.map((option, index) => {
           const selected = question.userVoteOptionId === option.id;
           const width = Math.round((option.votes / maxVotes) * 100);
+          const accent = ACCENTS[index % ACCENTS.length];
+          const letter = String.fromCharCode(65 + index);
           return (
             <button
               key={option.id}
               type="button"
               role="listitem"
+              data-accent={accent}
               className={`option-btn${selected ? " selected" : ""}`}
               disabled={busy}
               onClick={() => handleOptionClick(option.id)}
@@ -137,8 +142,13 @@ export function VoteBoard({
                 style={{ width: `${width}%` }}
                 aria-hidden="true"
               />
-              <span className="option-label">{option.label}</span>
-              <span className="option-count">{option.votes}</span>
+              <span className="option-main">
+                <span className="option-letter" aria-hidden="true">
+                  {letter}
+                </span>
+                <span className="option-label">{option.label}</span>
+              </span>
+              <span className="price-tag">{option.votes}</span>
             </button>
           );
         })}
@@ -152,7 +162,7 @@ export function VoteBoard({
             Back to team pack
           </Link>
           <Link href={`/t/${teamCode}/results`} className="btn solid">
-            View group dashboard
+            See the fight
           </Link>
         </div>
       ) : null}

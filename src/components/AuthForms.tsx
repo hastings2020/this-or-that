@@ -124,7 +124,7 @@ export function RegisterForm() {
 
   return (
     <form className="auth-card" onSubmit={handleSubmit}>
-      <p className="eyebrow">Soft start</p>
+      <p className="eyebrow">Fresh sticker</p>
       <h2>Create an account</h2>
       <p className="lede">
         Pick a display name — that’s how your votes and team packs show up.

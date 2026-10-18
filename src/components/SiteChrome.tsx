@@ -7,20 +7,17 @@ export async function SiteChrome({ children }: { children: React.ReactNode }) {
   return (
     <div className="shell">
       <div className="atmosphere" aria-hidden="true">
-        <span className="blob blob-a" />
-        <span className="blob blob-b" />
-        <span className="blob blob-c" />
-        <span className="grain" />
+        <span className="board-dots" />
       </div>
       <header className="topbar">
         <Link href="/" className="brand-mark">
-          This or That
+          this/that
         </Link>
         <nav className="topnav">
           <Link href="/#questions">Browse</Link>
-          <Link href="/teams/new">Team pack</Link>
+          <Link href="/teams/new">Team packs</Link>
           <Link href="/questions/new" className="nav-cta">
-            Ask one
+            Ask something unhinged
           </Link>
           {session?.user ? (
             <span className="auth-chip">
@@ -41,7 +38,7 @@ export async function SiteChrome({ children }: { children: React.ReactNode }) {
       </header>
       <main className="main">{children}</main>
       <footer className="footer">
-        Soft opinions only. Sign in anytime — nickname voting still works.
+        Opinions get loud. Sign in anytime — nickname voting still works.
       </footer>
     </div>
   );
